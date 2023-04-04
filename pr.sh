@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 set -e
-FILE_PATH=$HOME/projects/scripts/pr.md
+FILE_PATH=$HOME/.config/lazygit/pr.md
 BRANCH_NAME=$(git branch --show-current)
 
 if [ "$1" = "" ]

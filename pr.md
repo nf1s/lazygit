@@ -9,4 +9,3 @@ Jira ticket: https://fyndiq.atlassian.net/browse/&JIRA_TICKET
 &CHANGES
 
 ## Deployment and release considerations
-
