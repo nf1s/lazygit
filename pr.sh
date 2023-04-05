@@ -27,7 +27,7 @@ DESCRIPTION=$3
 
 if [[ $JIRA_TICKET != CORE* ]]; then
   echo "🚫 Jira ticket must start with CORE 🚫"
-  exit
+  exit 1
 fi
 
 echo "✅ Generating changes from commits. 📒 "
