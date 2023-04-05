@@ -55,7 +55,7 @@ customCommands:
             description: "a release branch"
             value: "release"
           - name: "documentation"
-            description: "a release branch"
+            description: "a branch for documentation"
             value: "documentation"
       - type: "input"
         title: "What is the Jira ticket number?"
