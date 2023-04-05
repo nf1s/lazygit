@@ -7,8 +7,8 @@
 
 ## Usage
 
-- "c" to create commits with conventional commits.
-- "b" create a pull request from template.
+- `c` to create commits with conventional commits.
+- `b` create a pull request from template.
 
 ## Setup
 
