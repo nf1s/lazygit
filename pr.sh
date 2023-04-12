@@ -32,6 +32,7 @@ fi
 
 CHANGES=`git log master.. --pretty=oneline --pretty=format:'- %s%b.'`
 CHANGES=${CHANGES//$'\n'/'<NEWLINE_PLACEHOLDER>'}
+
 echo "✅ Generated changes from commits. 📒 "
 
 BODY=$(awk -v jira_ticket="$JIRA_TICKET" -v description="$DESCRIPTION" -v changes="$CHANGES" '{
@@ -40,6 +41,9 @@ gsub(/<DESCRIPTION>/, description);
 gsub(/<CHANGES>/, changes);
 printf "%s\n", $0
 }' "$FILE_PATH")
+
+BODY=${BODY//'<NEWLINE_PLACEHOLDER>'/$'\n'}
+
 echo " ✅ Generating pull request template. 📖 "
 
 git push -u origin HEAD
