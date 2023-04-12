@@ -30,11 +30,17 @@ if [[ $JIRA_TICKET != CORE* ]]; then
   exit 1
 fi
 
-echo "✅ Generating changes from commits. 📒 "
 CHANGES=`git log master.. --pretty=oneline --pretty=format:'- %s%b.'`
+CHANGES=${CHANGES//$'\n'/'<NEWLINE_PLACEHOLDER>'}
+echo "✅ Generated changes from commits. 📒 "
 
-echo "✅ Generating pull request template. 📖 "
-BODY=$(sed -e "s/\&JIRA_TICKET/$JIRA_TICKET/g; s/\&DESCRIPTION/$DESCRIPTION/g; s/\&CHANGES/${CHANGES//$'\n'/\\$'\n'}/g;" $FILE_PATH)
+BODY=$(awk -v jira_ticket="$JIRA_TICKET" -v description="$DESCRIPTION" -v changes="$CHANGES" '{
+gsub(/<JIRA_TICKET>/, jira_ticket);
+gsub(/<DESCRIPTION>/, description);
+gsub(/<CHANGES>/, changes);
+printf "%s\n", $0
+}' "$FILE_PATH")
+echo " ✅ Generating pull request template. 📖 "
 
 git push -u origin HEAD
 gh pr create -t "[$JIRA_TICKET]/$BRANCH_TYPE/$BRANCH_NAME" -d -b "$BODY"
