@@ -17,6 +17,12 @@
 $ git clone https://github.com/nf1s/lazygit.git ~/.config/lazygit
 ```
 
+## Configure
+
+```
+$ touch config.cfg
+```
+
 ### Add your Jira ticket prefix to `config.cfg`
 
 ```bash
@@ -24,8 +30,11 @@ $ git clone https://github.com/nf1s/lazygit.git ~/.config/lazygit
 # In this case, the JIRA_TICKET_PREFIX should be set to is "ABC".
 # We can add multiple prefixes by separating them with a comma, e.g. "ABC,DEF"
 # JIRA_TICKET_PREFIX is case insensitive.
+# JIRA_COMPANY is your Jira workspace usually like `your_company.atlassian.net`
+# In this case, JIRA_COMPANY=your_company
 CHECK_JIRA_TICKET_PREFIX=true
-JIRA_TICKET_PREFIX=Jira,Core
+JIRA_TICKET_PREFIX=core,Ops
+JIRA_COMPANY=your_company
 ```
 
 ## Start
