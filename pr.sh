@@ -31,6 +31,7 @@ IFS=',' read -ra ALLOWED_TICKETS <<< "$JIRA_TICKET_PREFIX"
 if [[ $CHECK_JIRA_TICKET_PREFIX ]]; then
   found=false
   for f in "${ALLOWED_TICKETS[@]}" ;do
+    f=$(echo "$2" | tr '[:lower:]' '[:upper:]')
     if [[ $JIRA_TICKET == $f* ]]; then
       found=true
       break
