@@ -17,6 +17,17 @@
 $ git clone https://github.com/nf1s/lazygit.git ~/.config/lazygit
 ```
 
+### Add your Jira ticket prefix to `config.cfg`
+
+```bash
+# Jira tickets are usually prefixed with the project name, e.g. "ABC-1234".
+# In this case, the JIRA_TICKET_PREFIX should be set to is "ABC".
+# We can add multiple prefixes by separating them with a comma, e.g. "ABC,DEF"
+# JIRA_TICKET_PREFIX is case insensitive.
+CHECK_JIRA_TICKET_PREFIX=true
+JIRA_TICKET_PREFIX=Jira,Core
+```
+
 ## Start
 
 ```bash
