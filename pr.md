@@ -1,6 +1,6 @@
 ## Background
 
-Jira ticket: https://fyndiq.atlassian.net/browse/<JIRA_TICKET>
+Jira ticket: https://<JIRA_COMPANY>.atlassian.net/browse/<JIRA_TICKET>
 
 <DESCRIPTION>
 

@@ -3,5 +3,5 @@
 # We can add mutiple prefixes by separating them with a comma, e.g. "ABC,DEF".
 # JIRA_TICKET_PREFIX is case insensitive.
 CHECK_JIRA_TICKET_PREFIX=true
-JIRA_TICKET_PREFIX=CORE
-JIRA_COMPANY=fyndiq
+JIRA_TICKET_PREFIX=core,ops
+JIRA_COMPANY=your_company
