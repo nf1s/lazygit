@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 set -e
-source config.cfg
+source $HOME/.config/lazygit/config.cfg
 FILE_PATH=$HOME/.config/lazygit/pr.md
 BRANCH_NAME=$(git branch --show-current)
 
