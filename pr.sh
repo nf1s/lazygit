@@ -49,7 +49,12 @@ CHANGES=${CHANGES//$'\n'/'<NEWLINE_PLACEHOLDER>'}
 
 echo "✅ Generated changes from commits. 📒 "
 
-BODY=$(awk -v jira_ticket="$JIRA_TICKET" -v description="$DESCRIPTION" -v changes="$CHANGES" '{
+BODY=$(awk \
+  -v jira_company="$JIRA_COMPANY" \
+  -v jira_ticket="$JIRA_TICKET" \
+  -v description="$DESCRIPTION" \
+  -v changes="$CHANGES" '{
+gsub(/<JIRA_COMPANY>/, jira_company);
 gsub(/<JIRA_TICKET>/, jira_ticket);
 gsub(/<DESCRIPTION>/, description);
 gsub(/<CHANGES>/, changes);
