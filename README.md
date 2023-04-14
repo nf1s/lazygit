@@ -53,4 +53,4 @@ alias lazygit="lazygit -ucd ~/.config/lazygit"
 $ lazygit
 ```
 
-![image info](./pictures/image.png)
+![image info](./assets/image.png)
