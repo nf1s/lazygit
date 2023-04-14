@@ -52,3 +52,48 @@ alias lazygit="lazygit -ucd ~/.config/lazygit"
 ```bash
 $ lazygit
 ```
+
+## Example
+
+### Creating a new branch
+
+- Go to the local branches context and press `n`
+
+![image new_branch](./assets/0.new_branch.png)
+
+- Add branch_name
+
+![image branch_name](./assets/1.branch_name.png)
+
+- Create a new file `test.json`
+
+![image create_file](./assets/2.create_file.png)
+
+- Add to some data to the file
+
+![image add_contents_to_file](./assets/3.add_contents_to_file.png)
+
+- Press `Space` to stage the file
+
+![image stage_file](./assets/4.stage_file.png)
+
+- Add commit message
+
+![image add_commit_message](./assets/5.add_commit_message.png)
+
+- Check commit log
+
+![image check_commit_log](./assets/6.check_commit_log.png)
+
+- While in the Files or Branches context press `b` to create a new PR
+
+![image create_pr](./assets/7.create_pr.png)
+
+- Add Jira ticket number
+
+![image add_jira_ticket](./assets/8.add_jira_ticket_number.png)
+
+- Lazygit will automatically create a PR from template.
+- Will automatically open the browser for the PR.
+
+![image add_jira_ticket](./assets/9.end_result.png)
