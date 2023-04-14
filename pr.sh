@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 set -e
+source config.cfg
 FILE_PATH=$HOME/.config/lazygit/pr.md
 BRANCH_NAME=$(git branch --show-current)
+
 
 if [ "$1" = "" ]
 then
@@ -24,11 +26,22 @@ fi
 BRANCH_TYPE=$1
 JIRA_TICKET=$(echo "$2" | tr '[:lower:]' '[:upper:]')
 DESCRIPTION=$3
+IFS=',' read -ra ALLOWED_TICKETS <<< "$JIRA_TICKET_PREFIX"
 
-if [[ $JIRA_TICKET != CORE* ]]; then
-  echo "🚫 Jira ticket must start with CORE 🚫"
-  exit 1
+if [[ $CHECK_JIRA_TICKET_PREFIX ]]; then
+  found=false
+  for f in "${ALLOWED_TICKETS[@]}" ;do
+    if [[ $JIRA_TICKET == $f* ]]; then
+      found=true
+      break
+    fi
+  done
+  if ! $found; then
+        echo "🚫 Jira ticket must start with CORE 🚫"
+        exit 1
+  fi
 fi
+
 
 CHANGES=`git log master.. --pretty=oneline --pretty=format:'- %s%b.'`
 CHANGES=${CHANGES//$'\n'/'<NEWLINE_PLACEHOLDER>'}
