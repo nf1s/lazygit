@@ -66,5 +66,5 @@ BODY=${BODY//'<NEWLINE_PLACEHOLDER>'/$'\n'}
 echo " ✅ Generating pull request template. 📖 "
 
 git push -u origin HEAD
-gh pr create -t "[$JIRA_TICKET]/$BRANCH_TYPE/$BRANCH_NAME" -d -b "$BODY"
+gh pr create -t "[$JIRA_TICKET]:$BRANCH_TYPE/$BRANCH_NAME" -d -b "$BODY"
 gh pr view --web
